@@ -58,6 +58,78 @@
       .nav-links a:hover {
         color: var(--accent-color);
       }
+      /* Center content for each section */
+      section {
+        scroll-snap-align: start;
+        height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Vertically center */
+        justify-content: center; /* Horizontally center */
+      }
+
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Add this to center the hero content */
+        padding: 0 5%;
+      }
+
+      .tech-stack,
+      .projects,
+      #contact {
+        padding: 5rem 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Aligns items horizontally in the center */
+        justify-content: center; /* Ensures content is centered vertically */
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px); /* Start a little lower */
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0); /* End at its normal position */
+        }
+      }
+
+      /* Apply the fade-in animation to elements */
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 1.5s ease-out forwards; /* Animation with smooth fade-in effect */
+      }
+
+      .hero-content h1 {
+        animation-delay: 0.2s; /* Delay for h1 */
+      }
+
+      .hero-content p {
+        animation-delay: 0.4s; /* Delay for p */
+      }
+
+      .cta-button {
+        animation-delay: 0.6s; /* Delay for cta button */
+      }
+
+      .cv-button {
+        animation-delay: 0.8s; /* Delay for CV button */
+      }
+
+      /* Adjust animation timing for other sections */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+      }
+      /* Optionally adjust hero content if needed */
+      .hero-content {
+        text-align: center;
+        max-width: 600px; /* Adjust this if the text is too wide */
+      }
 
       .hero {
         height: 100vh;
@@ -71,7 +143,7 @@
       }
 
       .hero-content h1 {
-        font-size: 3rem;
+        font-size: 4rem;
         margin-bottom: 1rem;
       }
 
@@ -99,8 +171,9 @@
       }
 
       .tech-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap onto new lines */
+        justify-content: center; /* Center items horizontally */
         gap: 2rem;
         margin-top: 2rem;
       }
@@ -114,6 +187,7 @@
         background: #2d2d2d;
         border-radius: 8px;
         transition: transform 0.3s;
+        width: 120px; /* You can adjust this width as needed */
       }
 
       .tech-item:hover {
@@ -257,6 +331,16 @@
       .scroll-btn:hover {
         transform: scale(1.1);
       }
+      /* Add to existing styles */
+      html {
+        scroll-snap-type: y mandatory;
+      }
+
+      section {
+        scroll-snap-align: start;
+        height: 100vh;
+        overflow-y: auto;
+      }
     </style>
   </head>
   <body>
@@ -271,8 +355,8 @@
 
     <section class="hero" id="home">
       <div class="hero-content">
-        <h1>Hi, I'm Manshi 👋</h1>
-        <p>I'm a passionate developer.</p>
+        <h1 class="">MANSHI ADHIKARI</h1>
+        <p class="fade-in">Developer</p>
         <a href="#projects" class="cta-button">View My Work</a>
         <a
           href="Manshi-Adhikari-cv.pdf"
@@ -379,7 +463,11 @@
         </div>
         <div class="project-card">
           <h3>Nirvana Nepal</h3>
-          <p>A travel Website</p>
+          <p>
+            A travel tips website from visa info to trekking tips, culture to
+            accommodation and all the essential things you need to know before
+            travelling to Nepal
+          </p>
           <div class="project-links">
             <a
               href="https://github.com/adhikarimanshi/NirvanaNepal"
@@ -392,120 +480,129 @@
             </a>
           </div>
         </div>
+        <div class="project-card">
+          <h3>Krishi Sachetana</h3>
+          <p>
+            A combined solution for soil testing with crop recommendation using
+            AI/ML
+          </p>
+          <div class="project-links">
+            <a
+              href="https://github.com/adhikarimanshi/Krishisachetana"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-github"></i>
+              Github
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer id="contact">
-      <h2>Get in Touch</h2>
-      <div class="social-links">
-        <a
-          href="https://github.com/adhikarimanshi"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-github"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/manshiadhikari/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a
-          href="https://manshiadhikari.vercel.app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fas fa-briefcase"></i>
-          <!-- Portfolio icon -->
-        </a>
-        <a
-          href="mailto:adhikarimanshi03@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="far fa-envelope"></i>
-        </a>
-      </div>
-    </footer>
+    <section id="contact">
+      <footer>
+        <h2>Get in Touch</h2>
+        <div class="social-links">
+          <a
+            href="https://github.com/adhikarimanshi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/manshiadhikari/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://manshiadhikari.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-briefcase"></i>
+            <!-- Portfolio icon -->
+          </a>
+          <a
+            href="mailto:adhikarimanshi03@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="far fa-envelope"></i>
+          </a>
+        </div>
+      </footer>
+    </section>
 
     <button class="scroll-btn">
       <i class="fas fa-arrow-down"></i>
     </button>
 
     <script>
-      // Scroll button logic
-      const scrollBtn = document.querySelector(".scroll-btn"); // Add this line
+      // Modified scroll button logic
+      const scrollBtn = document.querySelector(".scroll-btn");
+      const sections = document.querySelectorAll("section");
+      let currentSection = 0;
 
-      function toggleScrollButton() {
-        const scrolledToBottom =
-          window.innerHeight + window.scrollY >=
-          document.documentElement.scrollHeight - 100;
+      // Add scroll snapping behavior
+      document.documentElement.style.scrollBehavior = "smooth";
+      document.body.style.overflow = "auto";
 
-        scrollBtn.classList.toggle("visible", window.scrollY > 100);
-        scrollBtn.innerHTML = scrolledToBottom
+      // Configure scroll snapping
+      sections.forEach((section) => {
+        section.style.scrollSnapAlign = "start";
+        section.style.height = "100vh";
+      });
+
+      // Track visible section
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              currentSection = Array.from(sections).indexOf(entry.target);
+              updateScrollButton();
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      function updateScrollButton() {
+        const isLastSection = currentSection === sections.length - 1;
+        scrollBtn.innerHTML = isLastSection
           ? '<i class="fas fa-arrow-up"></i>'
           : '<i class="fas fa-arrow-down"></i>';
       }
 
-      function handleScrollClick() {
-        if (
-          window.innerHeight + window.scrollY >=
-          document.documentElement.scrollHeight - 100
-        ) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        } else {
-          window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: "smooth",
-          });
-        }
+      function scrollToNextSection() {
+        const nextSection =
+          currentSection < sections.length - 1 ? currentSection + 1 : 0;
+        sections[nextSection].scrollIntoView({ behavior: "smooth" });
+        currentSection = nextSection;
+        updateScrollButton();
       }
 
-      window.addEventListener("scroll", toggleScrollButton);
-      scrollBtn.addEventListener("click", handleScrollClick);
-      toggleScrollButton(); // Initial check
+      // Update scroll button click handler
+      scrollBtn.addEventListener("click", scrollToNextSection);
 
-      // Smooth scrolling for navigation links
+      // Keep existing smooth scroll and navbar effects
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
+          const targetSection = document.querySelector(
+            this.getAttribute("href")
+          );
+          const sectionIndex = Array.from(sections).indexOf(targetSection);
+          currentSection = sectionIndex;
+          targetSection.scrollIntoView({ behavior: "smooth" });
+          updateScrollButton();
         });
-      });
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const nav = document.querySelector("nav");
-        nav.style.background =
-          window.scrollY > 50
-            ? "rgba(45, 45, 45, 0.95)"
-            : "rgba(45, 45, 45, 0.8)";
-      });
-    </script>
-
-    <script>
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const nav = document.querySelector("nav");
-        if (window.scrollY > 50) {
-          nav.style.background = "rgba(45, 45, 45, 0.95)";
-        } else {
-          nav.style.background = "rgba(45, 45, 45, 0.8)";
-        }
       });
     </script>
   </body>
